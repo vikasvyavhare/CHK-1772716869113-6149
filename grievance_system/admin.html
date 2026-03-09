@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDGRS Admin Console</title>
+    <link rel="stylesheet" href="../css/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="admin-shell">
+        <!-- Top Bar ONLY -->
+        <header class="topbar">
+            <!-- LEFT: Profile -->
+            <div class="profile-wrapper">
+                <button class="profile-toggle" id="profileToggle">
+                    <div class="profile-avatar">
+                        <span>RP</span>
+                    </div>
+                    <div class="profile-text">
+                        <span class="profile-name">Rahul Patil</span>
+                        <span class="profile-role">Duty Admin · SDGRS</span>
+                    </div>
+                    <i class="fas fa-chevron-down caret"></i>
+                </button>
+
+                <!-- Profile Panel (Admin Information) -->
+                <div class="profile-panel" id="profilePanel">
+                    <div class="panel-header">
+                        <div class="panel-avatar">
+                            <span>RP</span>
+                        </div>
+                        <div>
+                            <h2>Rahul Patil</h2>
+                            <p class="panel-role">Senior Grievance Administrator</p>
+                            <p class="panel-id">Admin ID: ADMN–2047</p>
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="panel-row">
+                            <span class="label">Primary Email</span>
+                            <span class="value">rahul.patil@sdgrs.gov.in</span>
+                        </div>
+                        <div class="panel-row">
+                            <span class="label">Contact</span>
+                            <span class="value">+91 98765 12047</span>
+                        </div>
+                        <div class="panel-row">
+                            <span class="label">Access Level</span>
+                            <span class="value badge badge-high">Level 3 · Escalation Authority</span>
+                        </div>
+                        <div class="panel-row">
+                            <span class="label">Shift Window</span>
+                            <span class="value">18:00 – 02:00 IST · Night Escalation</span>
+                        </div>
+                        <div class="panel-row">
+                            <span class="label">Last Login</span>
+                            <span class="value">10 Mar 2026, 00:51 IST · Gopalpur Node</span>
+                        </div>
+                        <div class="panel-row">
+                            <span class="label">Auth Method</span>
+                            <span class="value">FIDO2 Security Key + OTP</span>
+                        </div>
+                        <div class="panel-row">
+                            <span class="label">Current Session</span>
+                            <span class="value">Secure Session ID: SSN‑93F7‑A12C</span>
+                        </div>
+                        <div class="panel-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Grievances Closed</span>
+                                <span class="metric-value">1,284</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Avg. Response Time</span>
+                                <span class="metric-value">14 min</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">SLA Compliance</span>
+                                <span class="metric-value good">98.3%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-footer">
+                        <button class="panel-btn ghost">
+                            <i class="fas fa-user-gear"></i>
+                            Account settings
+                        </button>
+                        <button class="panel-btn danger">
+                            <i class="fas fa-right-from-bracket"></i>
+                            Sign out of console
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Project Logo -->
+            <div class="brand-mark">
+                <div class="brand-icon">
+                    <i class="fas fa-shield-halved"></i>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-title">SDGRS</span>
+                    <span class="brand-subtitle">Secure Digital Grievance Redressal</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Optional small message under header -->
+        <main class="admin-main">
+            <p class="subtitle">
+                Welcome, Rahul. Use the top profile panel to review your admin identity and security session details.
+            </p>
+        </main>
+    </div>
+
+    <script src="../js/admin.js"></script>
+</body>
+</html>

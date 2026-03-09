@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact SDGRS Support</title>
+    <link rel="stylesheet" href="../css/contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="contact-shell">
+        <!-- Header strip (simple, not template-ish) -->
+        <header class="contact-header">
+            <div class="contact-brand">
+                <i class="fas fa-shield-halved"></i>
+                <div class="brand-text">
+                    <span class="brand-name">SDGRS Support Desk</span>
+                    <span class="brand-tagline">Secure grievance support for citizens & staff</span>
+                </div>
+            </div>
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to main portal
+            </a>
+        </header>
+
+        <main class="contact-main">
+            <!-- Left: Context + direct channels -->
+            <section class="contact-context">
+                <h1>Tell us what you need help with</h1>
+                <p class="context-intro">
+                    This form creates a support ticket in the SDGRS system. A human support officer will read it and respond within the time shown below.
+                </p>
+
+                <div class="response-box">
+                    <div class="response-row">
+                        <span class="label">Standard response time</span>
+                        <span class="value">Within 4 working hours</span>
+                    </div>
+                    <div class="response-row">
+                        <span class="label">Critical incident (safety / legal)</span>
+                        <span class="value critical">Immediate queue · &lt; 30 minutes</span>
+                    </div>
+                    <div class="response-row">
+                        <span class="label">Support hours</span>
+                        <span class="value">Mon–Sat · 09:00 – 20:00 IST</span>
+                    </div>
+                </div>
+
+                <div class="direct-channels">
+                    <h2>Prefer to talk to us directly?</h2>
+                    <div class="channel-row">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <div class="channel-label">Phone (for urgent matters)</div>
+                            <div class="channel-value">+91 98765 43210</div>
+                        </div>
+                    </div>
+                    <div class="channel-row">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <div class="channel-label">Email</div>
+                            <div class="channel-value">support@sdgrs.gov.in</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right: Realistic ticket-style form -->
+            <section class="contact-form-wrapper">
+                <form id="contactForm" class="contact-form" novalidate>
+                    <h2>Create a support ticket</h2>
+                    <p class="form-hint">
+                        Please be as specific as possible. This helps us route your case to the right officer.[web:42][web:47]
+                    </p>
+
+                    <!-- 1. Who is contacting us -->
+                    <div class="form-section">
+                        <h3>1. Your details</h3>
+                        <div class="field-grid">
+                            <div class="form-group">
+                                <label for="fullName">Full name <span class="req">*</span></label>
+                                <input type="text" id="fullName" name="fullName" autocomplete="name" required>
+                                <small class="field-hint">Use your official name as per records.</small>
+                                <span class="error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email address <span class="req">*</span></label>
+                                <input type="email" id="email" name="email" autocomplete="email" required>
+                                <small class="field-hint">We’ll send updates to this email.</small>
+                                <span class="error"></span>
+                            </div>
+                        </div>
+
+                        <div class="field-grid">
+                            <div class="form-group">
+                                <label for="phone">Mobile number</label>
+                                <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+91">
+                                <small class="field-hint">Optional, but useful if we need to call you.</small>
+                                <span class="error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="relation">You are contacting us as <span class="req">*</span></label>
+                                <select id="relation" name="relation" required>
+                                    <option value="">Select one</option>
+                                    <option value="citizen">Citizen / Public user</option>
+                                    <option value="employee">Internal staff / Officer</option>
+                                    <option value="student">Student</option>
+                                    <option value="vendor">Vendor / Partner</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <small class="field-hint">This helps us understand your role in the system.[web:45]</small>
+                                <span class="error"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. What is the issue -->
+                    <div class="form-section">
+                        <h3>2. What is this about?</h3>
+                        <div class="form-group">
+                            <label for="topic">Topic <span class="req">*</span></label>
+                            <select id="topic" name="topic" required>
+                                <option value="">Choose the closest match</option>
+                                <option value="new-grievance">I want to raise a new grievance</option>
+                                <option value="status-update">I want to know the status of my grievance</option>
+                                <option value="portal-access">I cannot log in / access the portal</option>
+                                <option value="data-correction">I need to correct/update my submitted data</option>
+                                <option value="technical-error">I found a technical error in SDGRS</option>
+                                <option value="feedback">General feedback / suggestion</option>
+                            </select>
+                            <span class="error"></span>
+                        </div>
+
+                        <div class="field-grid">
+                            <div class="form-group">
+                                <label for="ticketId">Grievance ID (if you already have one)</label>
+                                <input type="text" id="ticketId" name="ticketId" placeholder="Example: GRV‑2026‑01423">
+                                <small class="field-hint">Leave blank if you are contacting us for the first time.</small>
+                                <span class="error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="urgency">How urgent is this? <span class="req">*</span></label>
+                                <select id="urgency" name="urgency" required>
+                                    <option value="">Select</option>
+                                    <option value="low">Low – Just sharing information</option>
+                                    <option value="normal">Normal – Needs response within 24 hours</option>
+                                    <option value="high">High – Blocking my work</option>
+                                    <option value="critical">Critical – Safety / legal risk</option>
+                                </select>
+                                <span class="error"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Short title for your issue <span class="req">*</span></label>
+                            <input type="text" id="subject" name="subject" maxlength="120" required placeholder="Example: Status update for grievance GRV‑2026‑01423">
+                            <span class="error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="details">Explain what happened <span class="req">*</span></label>
+                            <textarea id="details" name="details" rows="6" required placeholder="Include when this started, what you were trying to do, and what you expected to happen."></textarea>
+                            <small class="field-hint">
+                                Please don’t share passwords or OTPs. If this involves multiple people, mention their roles (not full personal details).[web:45][web:44]
+                            </small>
+                            <span class="error"></span>
+                        </div>
+                    </div>
+
+                    <!-- 3. How we should respond -->
+                    <div class="form-section">
+                        <h3>3. How should we respond?</h3>
+                        <div class="field-grid">
+                            <div class="form-group">
+                                <label for="preferredChannel">Preferred contact method</label>
+                                <select id="preferredChannel" name="preferredChannel">
+                                    <option value="">No preference</option>
+                                    <option value="email">Email</option>
+                                    <option value="phone">Phone call</option>
+                                    <option value="sms">SMS</option>
+                                </select>
+                                <small class="field-hint">We will still use email for official records.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="timeWindow">Best time to reach you</label>
+                                <select id="timeWindow" name="timeWindow">
+                                    <option value="">Any time during support hours</option>
+                                    <option value="morning">Morning (09:00–12:00)</option>
+                                    <option value="afternoon">Afternoon (12:00–17:00)</option>
+                                    <option value="evening">Evening (17:00–20:00)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group consent">
+                            <label class="checkbox">
+                                <input type="checkbox" id="consent" required>
+                                <span class="checkmark"></span>
+                                <span>I confirm that the details I am sharing are correct to the best of my knowledge and I agree to be contacted by the SDGRS support team regarding this request.</span>
+                            </label>
+                            <span class="error"></span>
+                        </div>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="form-footer">
+                        <button type="submit" class="submit-btn">
+                            <span class="btn-text">Submit support request</span>
+                            <span class="btn-spinner"><i class="fas fa-spinner fa-spin"></i></span>
+                        </button>
+                        <p class="small-note">
+                            After submitting, you’ll see a reference ID on screen and a copy will be emailed to you.[web:41][web:44]
+                        </p>
+                    </div>
+
+                    <div id="formStatus" class="form-status" aria-live="polite"></div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/contact.js"></script>
+</body>
+</html>
