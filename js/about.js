@@ -1,40 +1,109 @@
-// Animated counters
-function animateCounters() {
-    const counters = document.querySelectorAll('.stat-number');
-    counters.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-target'));
-        const increment = target / 200;
-        let current = 0;
-        
-        const updateCounter = () => {
-            if (current < target) {
-                current += increment;
-                counter.textContent = Math.floor(current);
-                requestAnimationFrame(updateCounter);
-            } else {
-                counter.textContent = target;
-            }
-        };
-        updateCounter();
+// Tilt effect for selected cards
+function attachTiltEffect(card) {
+    const maxTilt = 6;
+    const damp = 140;
+
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const dx = (x - centerX) / damp;
+        const dy = (y - centerY) / damp;
+
+        const tiltX = (dy * maxTilt) * -1;
+        const tiltY = dx * maxTilt;
+
+        card.style.transform = `perspective(600px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(-2px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
     });
 }
 
-// Intersection Observer for animations
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
+// Section focus mode
+function setupSectionFocus() {
+    const sections = Array.from(document.querySelectorAll('.hover-section'));
+
+    function setFocusSection(activeSection) {
+        sections.forEach(sec => {
+            if (!activeSection || sec === activeSection) {
+                sec.classList.remove('dimmed');
+            } else {
+                sec.classList.add('dimmed');
+            }
+        });
+    }
+
+    sections.forEach(sec => {
+        sec.addEventListener('mouseenter', () => setFocusSection(sec));
+        sec.addEventListener('mouseleave', () => setFocusSection(null));
     });
-});
+}
 
-// Observe elements for animation
-document.querySelectorAll('.content-card, .tech-item, .team-member').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(50px)';
-    el.style.transition = 'all 0.6s ease';
-    observer.observe(el);
-});
+// Flow timeline indicator
+function setupFlowTimeline() {
+    const indicator = document.getElementById('flowIndicator');
+    if (!indicator) return;
 
-window.addEventListener('load', animateCounters);
+    const steps = Array.from(document.querySelectorAll('.flow-step'));
+
+    function moveIndicator(index) {
+        const count = steps.length || 4;
+        const segment = 1 / count;
+        const translateX = index * segment;
+        indicator.style.transform = `translateX(${translateX * 100}%)`;
+    }
+
+    steps.forEach((step, index) => {
+        ['mouseenter', 'focus'].forEach(evt => {
+            step.addEventListener(evt, () => moveIndicator(index));
+        });
+    });
+}
+
+// Hover state per group
+function setupHoverCards() {
+    const groups = Array.from(document.querySelectorAll('.interactive-group'));
+
+    groups.forEach(group => {
+        const cards = Array.from(group.querySelectorAll('.hover-card'));
+
+        cards.forEach(card => {
+            const isStep = card.classList.contains('step-card');
+            const isFact = card.classList.contains('fact-card');
+            const isPrinciple = card.classList.contains('principle-card');
+            const isCommit = card.classList.contains('commit-card');
+
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('is-hovered');
+            });
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('is-hovered');
+            });
+
+            card.addEventListener('focus', () => {
+                card.classList.add('is-hovered');
+            });
+            card.addEventListener('blur', () => {
+                card.classList.remove('is-hovered');
+            });
+
+            // Tilt only on some groups
+            if (isFact || isPrinciple || isCommit) {
+                attachTiltEffect(card);
+            }
+            // Steps and gov cards rely on their own line/underline effects
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    setupHoverCards();
+    setupSectionFocus();
+    setupFlowTimeline();
+});

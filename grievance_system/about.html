@@ -3,114 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About SDGRS - Secure Digital Grievance System</title>
+    <title>About SDGRS – Secure Digital Grievance Redressal System</title>
     <link rel="stylesheet" href="../css/about.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <header class="header">
-        <nav class="navbar">
-            <div class="nav-brand">
-                <i class="fas fa-shield-alt"></i>
-                <span>SDGRS</span>
+    <div class="about-shell">
+        <header class="about-header">
+            <div class="about-brand">
+                <i class="fas fa-shield-halved"></i>
+                <div class="brand-text">
+                    <span class="brand-name">SDGRS</span>
+                    <span class="brand-tagline">Secure Digital Grievance Redressal System</span>
+                </div>
             </div>
-            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
-        </nav>
-    </header>
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to main portal
+            </a>
+        </header>
 
-    <main class="about-main">
-        <section class="hero-about">
-            <div class="hero-content">
-                <h1>About Our Mission</h1>
-                <p>Transforming grievance management with cutting-edge security and unparalleled efficiency</p>
-            </div>
-            <div class="shield-bg">
-                <i class="fas fa-shield-alt"></i>
-            </div>
-        </section>
+        <main class="about-main">
+            <!-- 1. Why SDGRS exists -->
+            <section class="hero-story hover-section" data-section="hero">
+                <div class="story-text">
+                    <h1>We built SDGRS so complaints stop getting lost in files and inboxes.</h1>
+                    <p class="lead">
+                        SDGRS is a secure digital layer on top of existing grievance cells. It records every complaint, assigns clear responsibility, and tracks the case until it is closed – with the complainant always in the loop.
+                    </p>
+                </div>
+                <div class="story-facts interactive-group facts-group">
+                    <div class="fact hover-card fact-card" tabindex="0">
+                        <span class="fact-label">Time‑bound redressal target</span>
+                        <span class="fact-value">21 days</span>
+                        <span class="fact-note">With clear escalation if timelines slip.</span>
+                    </div>
+                    <div class="fact hover-card fact-card" tabindex="0">
+                        <span class="fact-label">Each grievance gets</span>
+                        <span class="fact-value">1 unique ID</span>
+                        <span class="fact-note">Trackable across web, SMS and helpline.</span>
+                    </div>
+                    <div class="fact hover-card fact-card" tabindex="0">
+                        <span class="fact-label">Resolution feedback</span>
+                        <span class="fact-value">Mandatory</span>
+                        <span class="fact-note">Citizen can re‑open if not satisfied.</span>
+                    </div>
+                </div>
+            </section>
 
-        <section class="about-stats">
-            <div class="stat-card large">
-                <div class="stat-number" data-target="500">0</div>
-                <p>Active Organizations</p>
-            </div>
-            <div class="stat-card large">
-                <div class="stat-number" data-target="25000">0</div>
-                <p>Grievances Processed</p>
-            </div>
-            <div class="stat-card large">
-                <div class="stat-number" data-target="98">0</div><span>%</span>
-                <p>Customer Satisfaction</p>
-            </div>
-        </section>
+            <!-- 2. How the system actually works -->
+            <section class="how-it-works hover-section" data-section="flow">
+                <div class="section-header-with-line">
+                    <h2>How SDGRS handles a grievance</h2>
+                    <div class="flow-timeline">
+                        <div class="flow-indicator" id="flowIndicator"></div>
+                    </div>
+                </div>
+                <div class="steps-grid interactive-group steps-group">
+                    <div class="step hover-card step-card flow-step" data-step="1" tabindex="0">
+                        <span class="step-number">01</span>
+                        <h3>Intake & registration</h3>
+                        <p>
+                            Complaints can come from the portal, helpline, email or offline entry by staff. SDGRS converts each one into a structured record with category, department, and priority.
+                        </p>
+                    </div>
+                    <div class="step hover-card step-card flow-step" data-step="2" tabindex="0">
+                        <span class="step-number">02</span>
+                        <h3>Routing to the right officer</h3>
+                        <p>
+                            Based on category and location, the system assigns a nodal officer. Internal SLAs define how long each level can keep a grievance before it escalates automatically.
+                        </p>
+                    </div>
+                    <div class="step hover-card step-card flow-step" data-step="3" tabindex="0">
+                        <span class="step-number">03</span>
+                        <h3>Time‑bound resolution</h3>
+                        <p>
+                            Officers record actions, attach documents, and update status. If the SLA is at risk, the case is highlighted on the escalation dashboard for senior review.
+                        </p>
+                    </div>
+                    <div class="step hover-card step-card flow-step" data-step="4" tabindex="0">
+                        <span class="step-number">04</span>
+                        <h3>Feedback & closure</h3>
+                        <p>
+                            Once an officer proposes a resolution, the citizen is informed and can rate the outcome or re‑open the case. Feedback scores feed into performance dashboards.
+                        </p>
+                    </div>
+                </div>
+            </section>
 
-        <section class="mission-vision">
-            <div class="content-grid">
-                <div class="content-card">
-                    <i class="fas fa-bullseye"></i>
-                    <h3>Our Mission</h3>
-                    <p>Provide every citizen and organization with a secure, accessible platform to voice concerns and receive timely resolutions through transparent processes.</p>
+            <!-- 3. Our principles -->
+            <section class="principles hover-section" data-section="principles">
+                <h2>What we insist on every single day</h2>
+                <div class="principles-grid interactive-group principles-group">
+                    <div class="principle hover-card principle-card" tabindex="0">
+                        <h3>Traceability over blame</h3>
+                        <p>
+                            The objective is not to find who to blame, but to see clearly what happened. Every step – from intake to closure – is logged with time, actor and action.
+                        </p>
+                    </div>
+                    <div class="principle hover-card principle-card" tabindex="0">
+                        <h3>Data protection first</h3>
+                        <p>
+                            Grievances often contain sensitive personal details. SDGRS enforces role‑based access, encryption in transit, and controlled audit access for supervision.
+                        </p>
+                    </div>
+                    <div class="principle hover-card principle-card" tabindex="0">
+                        <h3>Respectful communication</h3>
+                        <p>
+                            Every update is written in clear, simple language without internal jargon. The system gently reminds officers if responses are delayed or incomplete.
+                        </p>
+                    </div>
+                    <div class="principle hover-card principle-card" tabindex="0">
+                        <h3>Learning from every complaint</h3>
+                        <p>
+                            We do not treat grievances as noise. Trends from SDGRS reports are used to recommend policy fixes and process changes to departments.
+                        </p>
+                    </div>
                 </div>
-                <div class="content-card">
-                    <i class="fas fa-rocket"></i>
-                    <h3>Our Vision</h3>
-                    <p>Become the global standard for digital grievance redressal, powered by AI-driven analytics and blockchain-secured records.</p>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="technology">
-            <h2>Enterprise-Grade Technology</h2>
-            <div class="tech-stack">
-                <div class="tech-item">
-                    <i class="fas fa-lock"></i>
-                    <h4>256-bit AES Encryption</h4>
-                    <p>Military-grade data protection</p>
+            <!-- 4. Governance & team -->
+            <section class="governance hover-section" data-section="governance">
+                <h2>Who runs SDGRS</h2>
+                <div class="gov-grid interactive-group gov-group">
+                    <div class="gov-block hover-card gov-card" tabindex="0">
+                        <h3>Grievance Cell</h3>
+                        <p>
+                            A dedicated cell monitors queues, follows up with departments, and ensures that citizens actually get answers, not just acknowledgements.
+                        </p>
+                        <ul>
+                            <li>Assigns and re‑assigns grievances when officers change.</li>
+                            <li>Monitors cases stuck beyond their SLA.</li>
+                            <li>Handles second‑level appeals if a citizen is not satisfied.</li>
+                        </ul>
+                    </div>
+                    <div class="gov-block hover-card gov-card" tabindex="0">
+                        <h3>Nodal & escalation officers</h3>
+                        <p>
+                            Each department has a nodal officer for first‑level resolution and a senior escalation officer for complex or sensitive matters.
+                        </p>
+                        <ul>
+                            <li>Classify complaints into the right schemes and departments.</li>
+                            <li>Record actions taken and reasons for any delay.</li>
+                            <li>Ensure that policy issues are flagged, not just closed.</li>
+                        </ul>
+                    </div>
+                    <div class="gov-block hover-card gov-card" tabindex="0">
+                        <h3>Technology & security team</h3>
+                        <p>
+                            A small in‑house team maintains the platform, reviews security, and ensures that outages or bugs do not silently drop grievances.
+                        </p>
+                        <ul>
+                            <li>Maintains uptime and backup processes.</li>
+                            <li>Reviews access logs and audit trails.</li>
+                            <li>Updates workflows when rules or schemes change.</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="tech-item">
-                    <i class="fas fa-cloud"></i>
-                    <h4>Cloud Infrastructure</h4>
-                    <p>99.99% uptime guarantee</p>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-robot"></i>
-                    <h4>AI Analytics</h4>
-                    <p>Smart categorization & prioritization</p>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-database"></i>
-                    <h4>Blockchain Audit Trail</h4>
-                    <p>Immutable resolution records</p>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="team-preview">
-            <h2>Our Leadership</h2>
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="avatar">JD</div>
-                    <h4>Dr. Jayesh Desai</h4>
-                    <p>Chief Security Officer</p>
+            <!-- 5. Measurable commitments -->
+            <section class="commitments hover-section" data-section="commitments">
+                <h2>What you can expect from SDGRS</h2>
+                <div class="commit-grid interactive-group commit-group">
+                    <div class="commit-item hover-card commit-card" tabindex="0">
+                        <span class="commit-label">Acknowledgement</span>
+                        <span class="commit-value">Within 10 minutes</span>
+                        <p>A grievance ID and a brief summary are sent to you by SMS / email, so you know the system has recorded your complaint.</p>
+                    </div>
+                    <div class="commit-item hover-card commit-card" tabindex="0">
+                        <span class="commit-label">First meaningful update</span>
+                        <span class="commit-value">Within 72 hours</span>
+                        <p>You will hear from the responsible office about what is being done, not just “in process”.</p>
+                    </div>
+                    <div class="commit-item hover-card commit-card" tabindex="0">
+                        <span class="commit-label">Escalation path</span>
+                        <span class="commit-value">Always visible</span>
+                        <p>For any grievance, you can see which level it is at and what the next escalation level is, if you are not satisfied.</p>
+                    </div>
                 </div>
-                <div class="team-member">
-                    <div class="avatar">SP</div>
-                    <h4>Sneha Patel</h4>
-                    <p>Chief Technology Officer</p>
-                </div>
-                <div class="team-member">
-                    <div class="avatar">RM</div>
-                    <h4>Rahul Mehta</h4>
-                    <p>Product Director</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Secure Digital Grievance Redressal System</p>
-    </footer>
+            </section>
+        </main>
+    </div>
 
     <script src="../js/about.js"></script>
 </body>

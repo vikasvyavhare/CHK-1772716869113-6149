@@ -1,121 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SDGRS Admin Console</title>
-    <link rel="stylesheet" href="../css/admin.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8" />
+  <title>SDGRS Admin</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+    }
+
+    .admin-header {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 0.8rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .profile-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #2563eb, #38bdf8);
+      color: #f9fafb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .profile-card {
+      position: fixed;
+      top: 70px;
+      right: 20px;
+      width: 260px;
+      background: #020617;
+      color: #e5e7eb;
+      padding: 1rem;
+      border-radius: 14px;
+      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.95);
+      display: none;
+      z-index: 999;
+    }
+
+    .profile-row {
+      font-size: 0.85rem;
+      margin-top: 0.25rem;
+    }
+
+    .admin-main {
+      max-width: 900px;
+      margin: 1.5rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .admin-card {
+      background: #f9fafb;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+      margin-bottom: 1.5rem;
+    }
+
+    .admin-card h2 {
+      margin-bottom: 0.8rem;
+    }
+
+    /* form styles */
+    .admin-form label {
+      display: block;
+      margin-top: 0.7rem;
+      font-weight: 500;
+    }
+
+    .admin-form input {
+      width: 100%;
+      padding: 0.6rem 0.7rem;
+      margin-top: 0.25rem;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+    }
+
+    .admin-form button {
+      margin-top: 1rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      background: #2563eb;
+      color: #f9fafb;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .error-text {
+      margin-top: 0.5rem;
+      color: #dc2626;
+      font-size: 0.85rem;
+    }
+
+    /* dashboard section hidden by default */
+    #dashboardSection {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-    <div class="admin-shell">
-        <!-- Top Bar ONLY -->
-        <header class="topbar">
-            <!-- LEFT: Profile -->
-            <div class="profile-wrapper">
-                <button class="profile-toggle" id="profileToggle">
-                    <div class="profile-avatar">
-                        <span>RP</span>
-                    </div>
-                    <div class="profile-text">
-                        <span class="profile-name">Rahul Patil</span>
-                        <span class="profile-role">Duty Admin · SDGRS</span>
-                    </div>
-                    <i class="fas fa-chevron-down caret"></i>
-                </button>
-
-                <!-- Profile Panel (Admin Information) -->
-                <div class="profile-panel" id="profilePanel">
-                    <div class="panel-header">
-                        <div class="panel-avatar">
-                            <span>RP</span>
-                        </div>
-                        <div>
-                            <h2>Rahul Patil</h2>
-                            <p class="panel-role">Senior Grievance Administrator</p>
-                            <p class="panel-id">Admin ID: ADMN–2047</p>
-                        </div>
-                    </div>
-
-                    <div class="panel-body">
-                        <div class="panel-row">
-                            <span class="label">Primary Email</span>
-                            <span class="value">rahul.patil@sdgrs.gov.in</span>
-                        </div>
-                        <div class="panel-row">
-                            <span class="label">Contact</span>
-                            <span class="value">+91 98765 12047</span>
-                        </div>
-                        <div class="panel-row">
-                            <span class="label">Access Level</span>
-                            <span class="value badge badge-high">Level 3 · Escalation Authority</span>
-                        </div>
-                        <div class="panel-row">
-                            <span class="label">Shift Window</span>
-                            <span class="value">18:00 – 02:00 IST · Night Escalation</span>
-                        </div>
-                        <div class="panel-row">
-                            <span class="label">Last Login</span>
-                            <span class="value">10 Mar 2026, 00:51 IST · Gopalpur Node</span>
-                        </div>
-                        <div class="panel-row">
-                            <span class="label">Auth Method</span>
-                            <span class="value">FIDO2 Security Key + OTP</span>
-                        </div>
-                        <div class="panel-row">
-                            <span class="label">Current Session</span>
-                            <span class="value">Secure Session ID: SSN‑93F7‑A12C</span>
-                        </div>
-                        <div class="panel-metrics">
-                            <div class="metric">
-                                <span class="metric-label">Grievances Closed</span>
-                                <span class="metric-value">1,284</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-label">Avg. Response Time</span>
-                                <span class="metric-value">14 min</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-label">SLA Compliance</span>
-                                <span class="metric-value good">98.3%</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="panel-footer">
-                        <button class="panel-btn ghost">
-                            <i class="fas fa-user-gear"></i>
-                            Account settings
-                        </button>
-                        <button class="panel-btn danger">
-                            <i class="fas fa-right-from-bracket"></i>
-                            Sign out of console
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- RIGHT: Project Logo -->
-            <div class="brand-mark">
-                <div class="brand-icon">
-                    <i class="fas fa-shield-halved"></i>
-                </div>
-                <div class="brand-text">
-                    <span class="brand-title">SDGRS</span>
-                    <span class="brand-subtitle">Secure Digital Grievance Redressal</span>
-                </div>
-            </div>
-        </header>
-
-        <!-- Optional small message under header -->
-        <main class="admin-main">
-            <p class="subtitle">
-                Welcome, Rahul. Use the top profile panel to review your admin identity and security session details.
-            </p>
-        </main>
+  <header class="admin-header">
+    <div>
+      <i class="fas fa-shield-halved"></i>
+      <span>SDGRS Admin Console</span>
     </div>
+    <div id="profileLogo" class="profile-logo" title="Admin profile">A</div>
+  </header>
 
-    <script src="../js/admin.js"></script>
+  <!-- profile popup -->
+  <div id="profileCard" class="profile-card">
+    <h3 id="adminName">Admin Name</h3>
+    <div class="profile-row" id="adminEmail"></div>
+    <div class="profile-row" id="adminDept"></div>
+    <div class="profile-row" id="adminPhone"></div>
+  </div>
+
+  <main class="admin-main">
+    <!-- REGISTER + DASHBOARD COMBINED -->
+
+    <!-- 1) Register form -->
+    <section id="registerSection" class="admin-card">
+      <h2>Register admin</h2>
+      <p>First time only: create your admin profile for SDGRS.</p>
+
+      <form id="adminRegisterForm" class="admin-form">
+        <label>Name</label>
+        <input type="text" name="name" required />
+
+        <label>Email</label>
+        <input type="email" name="email" required />
+
+        <label>Department</label>
+        <input type="text" name="department" required />
+
+        <label>Phone</label>
+        <input type="text" name="phone" />
+
+        <label>Password</label>
+        <input type="password" name="password" required />
+
+        <button type="submit">Register</button>
+        <div id="registerError" class="error-text"></div>
+      </form>
+    </section>
+
+    <!-- 2) Dashboard (hidden until admin exists) -->
+    <section id="dashboardSection" class="admin-card">
+      <h2>Welcome to SDGRS admin panel</h2>
+      <p>Here you will manage grievances and escalations.</p>
+      <p style="margin-top:0.8rem;font-size:0.9rem;">
+        Use the contact/ticket section to see citizen grievances stored in MongoDB and add escalation
+        logic later.
+      </p>
+    </section>
+  </main>
+
+  <script>
+    const profileLogo = document.getElementById("profileLogo");
+    const profileCard = document.getElementById("profileCard");
+    const registerSection = document.getElementById("registerSection");
+    const dashboardSection = document.getElementById("dashboardSection");
+    const registerForm = document.getElementById("adminRegisterForm");
+    const registerError = document.getElementById("registerError");
+
+    let profileLoaded = false;
+
+    async function loadProfile() {
+      try {
+        const res = await fetch("http://localhost:4000/api/admin/profile", {
+          credentials: "include",
+        });
+
+        if (!res.ok) {
+          // not logged in → keep register form visible
+          return;
+        }
+
+        const data = await res.json();
+        fillProfileUI(data);
+
+        // show dashboard, hide register
+        registerSection.style.display = "none";
+        dashboardSection.style.display = "block";
+        profileLoaded = true;
+      } catch (e) {
+        console.error("profile load error", e);
+      }
+    }
+
+    function fillProfileUI(data) {
+      document.getElementById("adminName").textContent = data.name;
+      document.getElementById("adminEmail").textContent = "Email: " + data.email;
+      document.getElementById("adminDept").textContent = "Department: " + data.department;
+      document.getElementById("adminPhone").textContent = "Phone: " + (data.phone || "-");
+      profileLogo.textContent = data.name ? data.name.charAt(0).toUpperCase() : "A";
+    }
+
+    // on first load, try to fetch profile (if already registered)
+    loadProfile();
+
+    // register form submit (AJAX)
+    registerForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      registerError.textContent = "";
+
+      const formData = new FormData(registerForm);
+      const payload = Object.fromEntries(formData.entries());
+
+      try {
+        const res = await fetch("http://localhost:4000/api/admin/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+          body: JSON.stringify(payload),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          registerError.textContent = data.message || "Registration failed";
+          return;
+        }
+
+        // success: fill UI, show dashboard
+        fillProfileUI(data.admin);
+        registerSection.style.display = "none";
+        dashboardSection.style.display = "block";
+        profileLoaded = true;
+      } catch (err) {
+        console.error("register error", err);
+        registerError.textContent = "Server error";
+      }
+    });
+
+    // profile toggle
+    profileLogo.addEventListener("click", async () => {
+      if (!profileLoaded) {
+        await loadProfile();
+      }
+
+      if (profileCard.style.display === "block") {
+        profileCard.style.display = "none";
+      } else if (profileLoaded) {
+        profileCard.style.display = "block";
+      } else {
+        alert("Register admin first.");
+      }
+    });
+
+    // close profile when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!profileCard.contains(e.target) && !profileLogo.contains(e.target)) {
+        profileCard.style.display = "none";
+      }
+    });
+  </script>
 </body>
 </html>

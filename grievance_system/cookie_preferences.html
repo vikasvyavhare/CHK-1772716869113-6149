@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cookie preferences · SDGRS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/policy.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="policy-shell">
+<header class="policy-header">
+  <a href="index.html" class="policy-back">
+    <i class="fas fa-arrow-left"></i>
+    Back to SDGRS portal
+  </a>
+  <div class="policy-heading">
+    <span class="pill pill-purple">Cookies & tracking</span>
+    <h1>Cookie preferences</h1>
+    <p>Manage how SDGRS uses cookies and similar technologies.</p>
+  </div>
+</header>
+
+<main class="policy-main">
+  <aside class="policy-toc">
+    <button class="toc-toggle" id="tocToggle">
+      <span>On this page</span><i class="fas fa-chevron-down"></i>
+    </button>
+    <nav id="tocNav">
+      <a href="#what-are-cookies" class="toc-link active">What are cookies</a>
+      <a href="#types" class="toc-link">Types we use</a>
+      <a href="#manage" class="toc-link">Manage preferences</a>
+    </nav>
+  </aside>
+
+  <section class="policy-content">
+    <article class="policy-block" id="what-are-cookies">
+      <h2>What are cookies</h2>
+      <p>
+        Cookies are small text files placed on your device to remember your preferences and help
+        secure your session.
+      </p>
+    </article>
+
+    <article class="policy-block" id="types">
+      <h2>Types of cookies we use</h2>
+      <ul class="bullet-grid">
+        <li><strong>Strictly necessary</strong> – required to log in and keep your session secure.</li>
+        <li><strong>Preference</strong> – remember language and accessibility choices.</li>
+        <li><strong>Analytics</strong> – help us understand how SDGRS is used so we can improve it.</li>
+      </ul>
+    </article>
+
+    <article class="policy-block" id="manage">
+      <h2>Manage your preferences</h2>
+      <p>You can adjust non‑essential cookie settings below. Your choice is stored in this browser only.</p>
+
+      <div class="cookie-controls">
+        <label class="toggle-row">
+          <span>Strictly necessary cookies</span>
+          <span class="toggle-desc">Always on – required for security and login.</span>
+          <span class="toggle disabled">On</span>
+        </label>
+
+        <label class="toggle-row">
+          <span>Preference cookies</span>
+          <span class="toggle-desc">Remember language and accessibility options.</span>
+          <button class="toggle" data-key="prefs">On</button>
+        </label>
+
+        <label class="toggle-row">
+          <span>Analytics cookies</span>
+          <span class="toggle-desc">Help us improve SDGRS through anonymised usage data.</span>
+          <button class="toggle" data-key="analytics">Off</button>
+        </label>
+      </div>
+
+      <button class="policy-cta" id="saveCookiesBtn">
+        <span>Save cookie preferences</span>
+        <i class="fas fa-check"></i>
+      </button>
+    </article>
+  </section>
+</main>
+
+<div class="policy-toast" id="toast">
+  <span>Your cookie preferences have been stored in this browser.</span>
+  <button id="toastClose"><i class="fas fa-xmark"></i></button>
+</div>
+
+<script src="../js/policy.js"></script>
+</body>
+</html>
