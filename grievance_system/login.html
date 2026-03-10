@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transparent Login Page</title>
+<style>
+/* Fullscreen Setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Background Image Fix */
+body {
+    background: url('https://cloud.wallsflow.com/posts/2026-03/9681f44786_anime-fantasy-mountain-village-live-wallpaper-wallsflow-com.webp') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Dark Overlay using Linear Gradient for better control */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* अंधार करण्यासाठी */
+    z-index: 1;
+}
+
+/* Glassmorphism Login Box (Transparent) */
+.login-box {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.15); /* Transparency */
+    backdrop-filter: blur(15px); /* काचेसारखा इफेक्ट */
+    -webkit-backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    width: 380px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.login-box h2 {
+    margin-bottom: 25px;
+    color: #fff; /* पांढरा रंग पारदर्शक बॅकग्राउंडवर चांगला दिसतो */
+    font-size: 2rem;
+}
+
+/* Input Boxes */
+.input-box {
+    margin-bottom: 20px;
+}
+.input-box input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 30px; /* Rounded inputs */
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+}
+
+/* Remember Me */
+.remember {
+    color: #fff;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.remember input {
+    margin-right: 8px;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 30px;
+    background: #ff5e62;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(255, 94, 98, 0.4);
+}
+button:hover {
+    background: #ff2e4d;
+    transform: scale(1.02);
+}
+
+/* Links */
+.links {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #eee;
+}
+.links a {
+    text-decoration: none;
+    color: #ff5e62;
+    font-weight: bold;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<div class="login-box">
+    <h2>Login</h2>
+    <form action="login.jsp" method="post">
+        <div class="input-box">
+            <input type="text" name="username" placeholder="Username" required>
+        </div>
+        <div class="input-box">
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="remember">
+            <input type="checkbox" name="remember"> Remember Me
+        </div>
+        <button type="submit">Login</button>
+    </form>
+    <p class="links">
+        Don't have an account? <a href="register.jsp">Sign Up</a>
+    </p>
+</div>
+
+</body>
+</html>
